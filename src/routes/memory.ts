@@ -75,7 +75,7 @@ router.get("/:session_id", (req: Request, res: Response) => {
   const limit = Math.min(parseInt(req.query.limit as string) || 50, 200);
   const role = req.query.role as string | undefined;
   const memories = store.getMemories(sessionId, limit, role);
-  res.json({ session_id: sessionId, count: memories.length, total_in_session: session.memory_count, memories });
+  res.json({ session_id: sessionId, count: memories.length, total_in_session: session!.memory_count, memories });
 });
 
 router.delete("/:session_id/:memory_id", (req: Request, res: Response) => {
