@@ -66,7 +66,7 @@ router.post("/:session_id", (req: Request, res: Response) => {
 
 router.get("/:session_id/session", (req: Request, res: Response) => {
   const session = store.getSession(req.params.session_id);
-  res.json(session);
+  res.json(session!);
 });
 
 router.get("/:session_id", (req: Request, res: Response) => {
